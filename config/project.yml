@@ -1,0 +1,482 @@
+project_name: phonescope_web_analytics_demo
+timezone: America/New_York
+start_date: 2025-01-01
+random_seed: 20260520
+base_daily_sessions: 48000
+
+site:
+  name: PhoneScope
+  domain: phonescope.example
+  description: A cell phone reviews, comparisons, and deals website.
+
+pages:
+  - page_path: /
+    page_type: home
+    content_category: general
+    phone_brand: none
+    phone_model: none
+    commercial_intent: medium
+    traffic_weight: 8.5
+    engagement_multiplier: 1.00
+    account_signup_multiplier: 0.95
+    newsletter_signup_multiplier: 1.05
+  - page_path: /reviews/iphone-16-pro
+    page_type: review
+    content_category: smartphone_reviews
+    phone_brand: Apple
+    phone_model: iPhone 16 Pro
+    commercial_intent: high
+    traffic_weight: 4.8
+    engagement_multiplier: 1.12
+    account_signup_multiplier: 1.12
+    newsletter_signup_multiplier: 1.02
+  - page_path: /reviews/samsung-galaxy-s25
+    page_type: review
+    content_category: smartphone_reviews
+    phone_brand: Samsung
+    phone_model: Galaxy S25
+    commercial_intent: high
+    traffic_weight: 4.5
+    engagement_multiplier: 1.10
+    account_signup_multiplier: 1.10
+    newsletter_signup_multiplier: 1.00
+  - page_path: /reviews/google-pixel-10
+    page_type: review
+    content_category: smartphone_reviews
+    phone_brand: Google
+    phone_model: Pixel 10
+    commercial_intent: high
+    traffic_weight: 3.7
+    engagement_multiplier: 1.08
+    account_signup_multiplier: 1.04
+    newsletter_signup_multiplier: 1.04
+  - page_path: /reviews/oneplus-14
+    page_type: review
+    content_category: smartphone_reviews
+    phone_brand: OnePlus
+    phone_model: OnePlus 14
+    commercial_intent: high
+    traffic_weight: 2.2
+    engagement_multiplier: 1.06
+    account_signup_multiplier: 1.02
+    newsletter_signup_multiplier: 1.00
+  - page_path: /compare/iphone-16-pro-vs-galaxy-s25
+    page_type: comparison
+    content_category: phone_comparisons
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: very_high
+    traffic_weight: 3.9
+    engagement_multiplier: 1.18
+    account_signup_multiplier: 1.35
+    newsletter_signup_multiplier: 1.08
+  - page_path: /compare/pixel-10-vs-iphone-16
+    page_type: comparison
+    content_category: phone_comparisons
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: very_high
+    traffic_weight: 3.0
+    engagement_multiplier: 1.16
+    account_signup_multiplier: 1.28
+    newsletter_signup_multiplier: 1.08
+  - page_path: /compare/budget-android-phones
+    page_type: comparison
+    content_category: phone_comparisons
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: high
+    traffic_weight: 2.6
+    engagement_multiplier: 1.12
+    account_signup_multiplier: 1.15
+    newsletter_signup_multiplier: 1.08
+  - page_path: /guides/best-phones-2026
+    page_type: guide
+    content_category: buying_guides
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 5.0
+    engagement_multiplier: 1.14
+    account_signup_multiplier: 0.95
+    newsletter_signup_multiplier: 1.32
+  - page_path: /guides/best-budget-phones
+    page_type: guide
+    content_category: buying_guides
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 4.3
+    engagement_multiplier: 1.12
+    account_signup_multiplier: 0.92
+    newsletter_signup_multiplier: 1.28
+  - page_path: /guides/best-camera-phones
+    page_type: guide
+    content_category: buying_guides
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 3.5
+    engagement_multiplier: 1.13
+    account_signup_multiplier: 0.90
+    newsletter_signup_multiplier: 1.30
+  - page_path: /guides/how-to-switch-carriers
+    page_type: guide
+    content_category: buying_guides
+    phone_brand: none
+    phone_model: none
+    commercial_intent: medium
+    traffic_weight: 2.4
+    engagement_multiplier: 1.10
+    account_signup_multiplier: 1.00
+    newsletter_signup_multiplier: 1.18
+  - page_path: /deals
+    page_type: deals
+    content_category: phone_deals
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: very_high
+    traffic_weight: 5.4
+    engagement_multiplier: 1.05
+    account_signup_multiplier: 1.55
+    newsletter_signup_multiplier: 1.10
+  - page_path: /deals/iphone-deals
+    page_type: deals
+    content_category: phone_deals
+    phone_brand: Apple
+    phone_model: Multiple
+    commercial_intent: very_high
+    traffic_weight: 3.6
+    engagement_multiplier: 1.06
+    account_signup_multiplier: 1.60
+    newsletter_signup_multiplier: 1.06
+  - page_path: /deals/samsung-deals
+    page_type: deals
+    content_category: phone_deals
+    phone_brand: Samsung
+    phone_model: Multiple
+    commercial_intent: very_high
+    traffic_weight: 3.4
+    engagement_multiplier: 1.05
+    account_signup_multiplier: 1.58
+    newsletter_signup_multiplier: 1.06
+  - page_path: /deals/pixel-deals
+    page_type: deals
+    content_category: phone_deals
+    phone_brand: Google
+    phone_model: Multiple
+    commercial_intent: very_high
+    traffic_weight: 2.5
+    engagement_multiplier: 1.04
+    account_signup_multiplier: 1.48
+    newsletter_signup_multiplier: 1.04
+  - page_path: /discount-club
+    page_type: discount_club_landing
+    content_category: account_signup
+    phone_brand: none
+    phone_model: none
+    commercial_intent: very_high
+    traffic_weight: 2.8
+    engagement_multiplier: 1.00
+    account_signup_multiplier: 2.10
+    newsletter_signup_multiplier: 0.85
+  - page_path: /newsletter
+    page_type: newsletter_landing
+    content_category: newsletter
+    phone_brand: none
+    phone_model: none
+    commercial_intent: medium
+    traffic_weight: 2.2
+    engagement_multiplier: 0.98
+    account_signup_multiplier: 0.70
+    newsletter_signup_multiplier: 2.25
+  - page_path: /phones
+    page_type: phone_listing
+    content_category: phone_database
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: low
+    traffic_weight: 3.1
+    engagement_multiplier: 1.04
+    account_signup_multiplier: 0.72
+    newsletter_signup_multiplier: 0.92
+  - page_path: /phones/apple
+    page_type: phone_listing
+    content_category: phone_database
+    phone_brand: Apple
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 2.5
+    engagement_multiplier: 1.05
+    account_signup_multiplier: 0.90
+    newsletter_signup_multiplier: 0.95
+  - page_path: /phones/samsung
+    page_type: phone_listing
+    content_category: phone_database
+    phone_brand: Samsung
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 2.4
+    engagement_multiplier: 1.05
+    account_signup_multiplier: 0.88
+    newsletter_signup_multiplier: 0.95
+  - page_path: /phones/apple/iphone-16-pro
+    page_type: phone_profile
+    content_category: phone_database
+    phone_brand: Apple
+    phone_model: iPhone 16 Pro
+    commercial_intent: high
+    traffic_weight: 2.2
+    engagement_multiplier: 1.10
+    account_signup_multiplier: 1.12
+    newsletter_signup_multiplier: 0.98
+  - page_path: /phones/samsung/galaxy-s25
+    page_type: phone_profile
+    content_category: phone_database
+    phone_brand: Samsung
+    phone_model: Galaxy S25
+    commercial_intent: high
+    traffic_weight: 2.0
+    engagement_multiplier: 1.10
+    account_signup_multiplier: 1.10
+    newsletter_signup_multiplier: 0.98
+  - page_path: /phones/google/pixel-10
+    page_type: phone_profile
+    content_category: phone_database
+    phone_brand: Google
+    phone_model: Pixel 10
+    commercial_intent: high
+    traffic_weight: 1.8
+    engagement_multiplier: 1.08
+    account_signup_multiplier: 1.05
+    newsletter_signup_multiplier: 0.98
+  - page_path: /carriers/verizon
+    page_type: carrier
+    content_category: carrier_deals
+    phone_brand: none
+    phone_model: none
+    commercial_intent: high
+    traffic_weight: 2.4
+    engagement_multiplier: 1.04
+    account_signup_multiplier: 1.25
+    newsletter_signup_multiplier: 0.92
+  - page_path: /carriers/att
+    page_type: carrier
+    content_category: carrier_deals
+    phone_brand: none
+    phone_model: none
+    commercial_intent: high
+    traffic_weight: 2.1
+    engagement_multiplier: 1.03
+    account_signup_multiplier: 1.22
+    newsletter_signup_multiplier: 0.92
+  - page_path: /carriers/t-mobile
+    page_type: carrier
+    content_category: carrier_deals
+    phone_brand: none
+    phone_model: none
+    commercial_intent: high
+    traffic_weight: 2.0
+    engagement_multiplier: 1.03
+    account_signup_multiplier: 1.20
+    newsletter_signup_multiplier: 0.92
+  - page_path: /news/best-black-friday-phone-deals
+    page_type: news
+    content_category: phone_news
+    phone_brand: Multiple
+    phone_model: Multiple
+    commercial_intent: high
+    traffic_weight: 2.8
+    engagement_multiplier: 0.96
+    account_signup_multiplier: 0.90
+    newsletter_signup_multiplier: 1.12
+  - page_path: /news/apple-announces-new-iphone
+    page_type: news
+    content_category: phone_news
+    phone_brand: Apple
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 2.2
+    engagement_multiplier: 0.95
+    account_signup_multiplier: 0.72
+    newsletter_signup_multiplier: 1.08
+  - page_path: /news/samsung-galaxy-launch-event
+    page_type: news
+    content_category: phone_news
+    phone_brand: Samsung
+    phone_model: Multiple
+    commercial_intent: medium
+    traffic_weight: 2.0
+    engagement_multiplier: 0.95
+    account_signup_multiplier: 0.72
+    newsletter_signup_multiplier: 1.08
+
+countries:
+  - name: United States
+    region: North America
+    multiplier: 1.25
+    weight: 0.46
+  - name: Canada
+    region: North America
+    multiplier: 0.82
+    weight: 0.14
+  - name: United Kingdom
+    region: Europe
+    multiplier: 0.92
+    weight: 0.16
+  - name: Germany
+    region: Europe
+    multiplier: 0.86
+    weight: 0.13
+  - name: Australia
+    region: Oceania
+    multiplier: 0.74
+    weight: 0.11
+
+devices:
+  - name: desktop
+    multiplier: 1.05
+    weight: 0.44
+  - name: mobile
+    multiplier: 0.92
+    weight: 0.47
+  - name: tablet
+    multiplier: 0.72
+    weight: 0.09
+
+traffic_channels:
+  - source: google
+    medium: organic
+    campaign: none
+    multiplier: 1.22
+    weight: 0.38
+    account_signup_multiplier: 1.15
+    newsletter_signup_multiplier: 0.95
+  - source: direct
+    medium: none
+    campaign: none
+    multiplier: 1.05
+    weight: 0.22
+    account_signup_multiplier: 1.05
+    newsletter_signup_multiplier: 0.90
+  - source: facebook
+    medium: paid_social
+    campaign: spring_prospecting
+    multiplier: 0.96
+    weight: 0.16
+    account_signup_multiplier: 0.88
+    newsletter_signup_multiplier: 1.20
+  - source: newsletter
+    medium: email
+    campaign: weekly_digest
+    multiplier: 0.88
+    weight: 0.13
+    account_signup_multiplier: 0.70
+    newsletter_signup_multiplier: 1.35
+  - source: affiliate_partner
+    medium: referral
+    campaign: partner_network
+    multiplier: 0.78
+    weight: 0.11
+    account_signup_multiplier: 1.25
+    newsletter_signup_multiplier: 0.85
+
+weekly_seasonality:
+  monday: 1.025
+  tuesday: 1.035
+  wednesday: 1.030
+  thursday: 1.020
+  friday: 1.000
+  saturday: 0.965
+  sunday: 0.975
+
+monthly_seasonality:
+  1: 0.94
+  2: 0.96
+  3: 1.03
+  4: 1.04
+  5: 1.07
+  6: 1.02
+  7: 0.98
+  8: 0.99
+  9: 1.06
+  10: 1.10
+  11: 1.18
+  12: 1.14
+
+randomness:
+  noise_stddev: 0.045
+  min_multiplier: 0.88
+  max_multiplier: 1.12
+  daily_noise_stddev: 0.025
+  daily_min_multiplier: 0.95
+  daily_max_multiplier: 1.05
+
+growth_trend:
+  monthly_growth_rate: 0.018
+
+special_events:
+  - name: Spring Phone Launch Week
+    start_date: 2025-04-14
+    end_date: 2025-04-20
+    multiplier: 1.35
+    account_signup_multiplier: 1.20
+    newsletter_signup_multiplier: 1.10
+    page_types:
+      - review
+      - comparison
+      - news
+    phone_brands:
+      - Apple
+      - Samsung
+      - Multiple
+    channels:
+      - google
+      - newsletter
+  - name: Black Friday Cyber Week
+    start_date: 2025-11-24
+    end_date: 2025-12-01
+    multiplier: 1.65
+    account_signup_multiplier: 1.35
+    newsletter_signup_multiplier: 1.25
+    content_categories:
+      - phone_deals
+      - carrier_deals
+      - phone_news
+    channels:
+      - google
+      - facebook
+      - affiliate_partner
+
+metric_rules:
+  users_per_session_min: 0.64
+  users_per_session_max: 0.86
+  new_user_rate_min: 0.34
+  new_user_rate_max: 0.66
+  pageviews_per_session_min: 1.5
+  pageviews_per_session_max: 3.9
+  engagement_rate_min: 0.50
+  engagement_rate_max: 0.78
+  avg_session_duration_seconds_min: 50
+  avg_session_duration_seconds_max: 240
+
+conversion_rules:
+  account_signups:
+    start_rate:
+      base: 0.035
+      min: 0.005
+      max: 0.12
+    completion_rate:
+      base: 0.62
+      min: 0.35
+      max: 0.85
+
+  newsletter_signups:
+    start_rate:
+      base: 0.025
+      min: 0.003
+      max: 0.10
+    completion_rate:
+      base: 0.72
+      min: 0.45
+      max: 0.90

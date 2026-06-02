@@ -1,0 +1,136 @@
+version: 2
+
+models:
+  - name: mart_traffic_daily
+    description: Daily analytics table aggregated by page, country, device, source, and medium.
+    columns:
+      - name: traffic_date
+        tests:
+          - not_null
+      - name: site_name
+        tests:
+          - not_null
+      - name: page_path
+        tests:
+          - not_null
+      - name: page_type
+        tests:
+          - not_null
+      - name: content_category
+        tests:
+          - not_null
+      - name: commercial_intent
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["low", "medium", "high", "very_high"]
+      - name: sessions
+        tests:
+          - non_negative
+      - name: users_count
+        tests:
+          - non_negative
+      - name: pageviews
+        tests:
+          - non_negative
+      - name: engagement_rate
+        tests:
+          - between_zero_and_one
+      - name: bounce_rate
+        tests:
+          - between_zero_and_one
+      - name: account_signup_starts
+        tests:
+          - non_negative
+      - name: account_signups
+        tests:
+          - non_negative
+          - less_than_or_equal_to:
+              arguments:
+                compare_column: account_signup_starts
+      - name: newsletter_signup_starts
+        tests:
+          - non_negative
+      - name: newsletter_signups
+        tests:
+          - non_negative
+          - less_than_or_equal_to:
+              arguments:
+                compare_column: newsletter_signup_starts
+      - name: account_signup_rate
+        tests:
+          - between_zero_and_one
+      - name: account_signup_completion_rate
+        tests:
+          - between_zero_and_one
+      - name: newsletter_signup_rate
+        tests:
+          - between_zero_and_one
+      - name: newsletter_signup_completion_rate
+        tests:
+          - between_zero_and_one
+
+  - name: mart_traffic_summary
+    description: Executive daily summary of traffic KPIs by site, page type, and content category.
+    columns:
+      - name: traffic_date
+        tests:
+          - not_null
+      - name: site_name
+        tests:
+          - not_null
+      - name: page_type
+        tests:
+          - not_null
+      - name: content_category
+        tests:
+          - not_null
+      - name: total_sessions
+        tests:
+          - non_negative
+      - name: total_users
+        tests:
+          - non_negative
+      - name: total_pageviews
+        tests:
+          - non_negative
+      - name: engagement_rate
+        tests:
+          - between_zero_and_one
+      - name: bounce_rate
+        tests:
+          - between_zero_and_one
+      - name: new_user_rate
+        tests:
+          - between_zero_and_one
+      - name: total_account_signup_starts
+        tests:
+          - non_negative
+      - name: total_account_signups
+        tests:
+          - non_negative
+          - less_than_or_equal_to:
+              arguments:
+                compare_column: total_account_signup_starts
+      - name: total_newsletter_signup_starts
+        tests:
+          - non_negative
+      - name: total_newsletter_signups
+        tests:
+          - non_negative
+          - less_than_or_equal_to:
+              arguments:
+                compare_column: total_newsletter_signup_starts
+      - name: account_signup_rate
+        tests:
+          - between_zero_and_one
+      - name: account_signup_completion_rate
+        tests:
+          - between_zero_and_one
+      - name: newsletter_signup_rate
+        tests:
+          - between_zero_and_one
+      - name: newsletter_signup_completion_rate
+        tests:
+          - between_zero_and_one

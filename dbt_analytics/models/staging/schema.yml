@@ -1,0 +1,121 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: daily_traffic
+        columns:
+          - name: traffic_date
+            tests:
+              - not_null
+          - name: site_name
+            tests:
+              - not_null
+          - name: page_path
+            tests:
+              - not_null
+
+models:
+  - name: stg_daily_traffic
+    description: Cleaned and typed page-level daily traffic records from raw.daily_traffic.
+    columns:
+      - name: daily_traffic_key
+        tests:
+          - not_null
+          - unique
+      - name: traffic_date
+        tests:
+          - not_null
+      - name: site_name
+        tests:
+          - not_null
+      - name: page_path
+        tests:
+          - not_null
+      - name: page_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - home
+                  - review
+                  - comparison
+                  - guide
+                  - deals
+                  - discount_club_landing
+                  - newsletter_landing
+                  - phone_listing
+                  - phone_profile
+                  - carrier
+                  - news
+      - name: content_category
+        tests:
+          - not_null
+      - name: phone_brand
+        tests:
+          - not_null
+      - name: phone_model
+        tests:
+          - not_null
+      - name: commercial_intent
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["low", "medium", "high", "very_high"]
+      - name: country
+        tests:
+          - not_null
+      - name: region
+        tests:
+          - not_null
+      - name: device_category
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["desktop", "mobile", "tablet"]
+      - name: traffic_source
+        tests:
+          - not_null
+      - name: traffic_medium
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["organic", "none", "paid_social", "email", "referral"]
+      - name: sessions
+        tests:
+          - non_negative
+      - name: users_count
+        tests:
+          - non_negative
+      - name: pageviews
+        tests:
+          - non_negative
+      - name: bounce_rate
+        tests:
+          - between_zero_and_one
+      - name: engagement_rate
+        tests:
+          - between_zero_and_one
+      - name: account_signup_starts
+        tests:
+          - non_negative
+      - name: account_signups
+        tests:
+          - non_negative
+          - less_than_or_equal_to:
+              arguments:
+                compare_column: account_signup_starts
+      - name: newsletter_signup_starts
+        tests:
+          - non_negative
+      - name: newsletter_signups
+        tests:
+          - non_negative
+          - less_than_or_equal_to:
+              arguments:
+                compare_column: newsletter_signup_starts
