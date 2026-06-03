@@ -71,6 +71,25 @@ def handle_run_pipeline(args: argparse.Namespace) -> None:
     run_dbt_build(args.dbt_project_dir)
 
 
+def handle_railway_start(args: argparse.Namespace) -> None:
+    should_run = os.getenv("RUN_DAILY_PIPELINE_ON_START", "").lower() in {
+        "1",
+        "true",
+        "yes",
+    }
+    if not should_run:
+        print(
+            "RUN_DAILY_PIPELINE_ON_START is not true; exiting without generating data."
+        )
+        return
+
+    args.mode = "daily"
+    args.date = None
+    args.start_date = None
+    args.end_date = None
+    handle_run_pipeline(args)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Synthetic web analytics pipeline")
     parser.add_argument("--config-path", default=None, help="Path to config/project.yml")
@@ -82,6 +101,13 @@ def build_parser() -> argparse.ArgumentParser:
     dbt_build = subparsers.add_parser("dbt-build", help="Run dbt build without generating data")
     dbt_build.add_argument("--dbt-project-dir", default="dbt_analytics")
     dbt_build.set_defaults(func=handle_dbt_build)
+
+    railway_start = subparsers.add_parser(
+        "railway-start",
+        help="Railway-safe start command; runs daily pipeline only when explicitly enabled",
+    )
+    railway_start.add_argument("--dbt-project-dir", default="dbt_analytics")
+    railway_start.set_defaults(func=handle_railway_start)
 
     for name in ("generate", "run-pipeline"):
         command = subparsers.add_parser(name)
