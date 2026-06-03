@@ -149,14 +149,11 @@ DATABASE_CONNECT_TIMEOUT_SECONDS=10
 DATABASE_CONNECT_RETRIES=8
 DATABASE_CONNECT_RETRY_DELAY_SECONDS=2
 DATABASE_CONNECT_RETRY_BACKOFF=1.5
-RUN_DAILY_PIPELINE_ON_START=false
 ```
 
 Do not commit `.env` or real database credentials.
 
 The `DATABASE_CONNECT_*` settings are optional. They let the CLI and Streamlit app retry while a dormant or cold-starting Postgres instance wakes up.
-
-`RUN_DAILY_PIPELINE_ON_START` is only used by the optional Railway start command. Leave it as `false` for a normal deploy that should not generate data on startup. Set it to `true` only for a scheduled job service that should run the daily pipeline.
 
 ## Local Setup
 
@@ -270,18 +267,10 @@ The Streamlit explorer is for local inspection and development. It does not repl
 `railway.json` uses this start command:
 
 ```bash
-uv run python -m synthetic_analytics.cli railway-start
+uv run python -m synthetic_analytics.cli run-pipeline --mode daily
 ```
 
-By default, this command exits without touching the database. This prevents a first deployment or manual service restart from inserting data.
-
-For a Railway Cron Job that should generate daily data, set this service variable:
-
-```bash
-RUN_DAILY_PIPELINE_ON_START=true
-```
-
-Then configure the Railway service as a native Cron Job. When the cron starts the service, `railway-start` runs the daily pipeline and exits; it does not start a web server.
+Configure the Railway service as a native Cron Job. When the cron starts the service, the command generates only yesterday's data, runs dbt, and exits; it does not start a web server or backfill old dates.
 
 ## Tests
 
