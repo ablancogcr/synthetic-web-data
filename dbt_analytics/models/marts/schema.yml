@@ -4,6 +4,10 @@ models:
   - name: mart_traffic_daily
     description: Daily analytics table aggregated by page, country, device, source, and medium.
     columns:
+      - name: mart_traffic_daily_key
+        tests:
+          - not_null
+          - unique
       - name: traffic_date
         tests:
           - not_null
@@ -74,6 +78,10 @@ models:
   - name: mart_traffic_summary
     description: Executive daily summary of traffic KPIs by site, page type, and content category.
     columns:
+      - name: mart_traffic_summary_key
+        tests:
+          - not_null
+          - unique
       - name: traffic_date
         tests:
           - not_null

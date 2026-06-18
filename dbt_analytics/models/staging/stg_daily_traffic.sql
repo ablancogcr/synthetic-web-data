@@ -1,5 +1,35 @@
 with source as (
-    select *
+    select
+        id,
+        traffic_date,
+        site_name,
+        page_path,
+        page_type,
+        content_category,
+        phone_brand,
+        phone_model,
+        commercial_intent,
+        country,
+        region,
+        device_category,
+        traffic_source,
+        traffic_medium,
+        campaign,
+        sessions,
+        users_count,
+        new_users,
+        returning_users,
+        pageviews,
+        engaged_sessions,
+        avg_session_duration_seconds,
+        bounce_rate,
+        engagement_rate,
+        account_signup_starts,
+        account_signups,
+        newsletter_signup_starts,
+        newsletter_signups,
+        created_at,
+        updated_at
     from {{ source('raw', 'daily_traffic') }}
 ),
 
@@ -39,7 +69,7 @@ cleaned as (
 )
 
 select
-    {{ dbt.concat([
+    md5({{ dbt.concat([
         "traffic_date::text",
         "'|'",
         "site_name",
@@ -67,6 +97,35 @@ select
         "traffic_medium",
         "'|'",
         "campaign"
-    ]) }} as daily_traffic_key,
-    *
+    ]) }}) as daily_traffic_key,
+    id,
+    traffic_date,
+    site_name,
+    page_path,
+    page_type,
+    content_category,
+    phone_brand,
+    phone_model,
+    commercial_intent,
+    country,
+    region,
+    device_category,
+    traffic_source,
+    traffic_medium,
+    campaign,
+    sessions,
+    users_count,
+    new_users,
+    returning_users,
+    pageviews,
+    engaged_sessions,
+    avg_session_duration_seconds,
+    bounce_rate,
+    engagement_rate,
+    account_signup_starts,
+    account_signups,
+    newsletter_signup_starts,
+    newsletter_signups,
+    created_at,
+    updated_at
 from cleaned
